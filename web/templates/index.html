@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liturgical Calendar Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #870505 0%, #380303 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .input-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+        label {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+        input[type="number"] {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 200px;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #420303 0%, #420303 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .error {
+            background: #ffe5e5;
+            border-left: 4px solid #ff4444;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #cc0000;
+        }
+        .result-section {
+            margin-top: 30px;
+        }
+        .info-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .info-box h3 {
+            color: #094582;
+            margin-bottom: 10px;
+        }
+        .info-box p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .date-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #540811;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .date-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .date-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .date-value {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .advent-sundays {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liturgical Calendar Calculator</h1>
+        <p class="subtitle">Normalmente esta aplicación deb calcular el conjunto de fechas móviles del calendario litúrgico católico (Julian: 532-1582 / Gregorian: 1583+)</p>
+
+        <div class="input-section">
+            <form method="POST" class="form-group">
+                <label for="year">Enter Year:</label>
+                <input type="number" id="year" name="year" 
+                       value="{{ year if year else '' }}" 
+                       min="532" max="9999" required>
+                <button type="submit">Calculate</button>
+            </form>
+        </div>
+
+        {% if error %}
+        <div class="error">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="result-section">
+            <div class="info-box">
+                <h3>Year {{ result['Year'] }}</h3>
+                <p><strong>Calendar Type:</strong> {{ result['Calendar'] }}</p>
+                <p><strong>Leap Year:</strong> {{ 'Yes' if result['Is Leap Year'] else 'No' }}</p>
+            </div>
+
+            <h2 style="margin-bottom: 15px; color: #333;">Liturgical Dates</h2>
+            <div class="dates-grid">
+                {% for key, value in result.items() %}
+                    {% if key not in ['Year', 'Calendar', 'Is Leap Year', 'Lent', 'Advent Sundays'] %}
+                    <div class="date-card">
+                        <div class="date-label">{{ key }}</div>
+                        <div class="date-value">{{ value }}</div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+                {% if 'Lent' in result %}
+                <div class="date-card">
+                    <div class="date-label">Lent Period</div>
+                    <div class="date-value">{{ result['Lent'] }}</div>
+                </div>
+                {% endif %}
+
+                {% if 'Advent Sundays' in result %}
+                <div class="date-card advent-sundays">
+                    <div class="date-label">Advent Sundays</div>
+                    <div class="date-value">
+                        {% for sunday in result['Advent Sundays'] %}
+                        {{ loop.index }}. {{ sunday }}<br>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p><strong><em>calendario-liturgico</em> Library v0.0.1</strong></p>
+            <p>Un herramienta para la gente que no encuenta las fechas móviles en la bibliografía</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                CC BY-NC-SA 4.0 | Andrés Echavarría Peláez
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
