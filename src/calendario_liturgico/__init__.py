@@ -42,7 +42,7 @@ Andres Felipe Echavarria Pelaez
 
 License
 -------
-MIT License
+CC BY-NC-SA 4.0
 
 Version
 -------
