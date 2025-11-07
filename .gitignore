@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Archivo para la librería
+.pypirc
+
+
 # C extensions
 *.so
 
