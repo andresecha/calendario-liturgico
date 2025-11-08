@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![License: Etalab-2.0](https://img.shields.io/badge/License-Etalab--2.0-blue.svg)](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/andresecha/libraryProject)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/andresecha/calendario-liturgico)
 
 [English](#english) | [Español](#español) | [Français](#français)
 
@@ -35,15 +35,15 @@ pip install calendario-liturgico
 
 **Windows:**
 ```cmd
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 install_local.bat
 ```
 
 **Linux/macOS:**
 ```bash
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 chmod +x install_local.sh
 ./install_local.sh
 ```
@@ -163,15 +163,15 @@ pip install calendario-liturgico
 
 **Windows:**
 ```cmd
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 install_local.bat
 ```
 
 **Linux/macOS:**
 ```bash
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 chmod +x install_local.sh
 ./install_local.sh
 ```
@@ -291,15 +291,15 @@ pip install calendario-liturgico
 
 **Windows:**
 ```cmd
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 install_local.bat
 ```
 
 **Linux/macOS:**
 ```bash
-git clone https://github.com/andresecha/libraryProject.git
-cd libraryProject
+git clone https://github.com/andresecha/calendario-liturgico.git
+cd calendario-liturgico
 chmod +x install_local.sh
 ./install_local.sh
 ```
@@ -453,8 +453,8 @@ Andres Felipe Echavarria Pelaez
 
 ## Version
 
-0.0.1.1
-(BORRAR - la de tres cifras no funcionó)
+0.0.0.0
+
 ## License / Licencia / Licence
 
 Etalab Open License 2.0 / Licence Ouverte Etalab 2.0 - See LICENSE file for details

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "calendario-liturgico"
-version = "0.0.1.1"
+version = "0.0.0.0"
 description = "Python library for calculating Christian liturgical dates"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -58,9 +58,9 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/andresecha/libraryProject"
-Repository = "https://github.com/andresecha/libraryProject"
-"Bug Tracker" = "https://github.com/andresecha/libraryProject/issues"
+Homepage = "https://github.com/andresecha/calendario-liturgico"
+Repository = "https://github.com/andresecha/calendario-liturgico"
+"Bug Tracker" = "https://github.com/andresecha/calendario-liturgico"
 
 [tool.setuptools.packages.find]
 where = ["src"]
