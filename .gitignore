@@ -153,3 +153,5 @@ Thumbs.db
 CalculadoraLiturgica.py.bak
 
 # Project Configuración
+.pypirc
+*.pypirc
