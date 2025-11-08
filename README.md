@@ -453,8 +453,8 @@ Andres Felipe Echavarria Pelaez
 
 ## Version
 
-0.0.1
-
+0.0.1.1
+(BORRAR - la de tres cifras no funcionó)
 ## License / Licencia / Licence
 
 Etalab Open License 2.0 / Licence Ouverte Etalab 2.0 - See LICENSE file for details
