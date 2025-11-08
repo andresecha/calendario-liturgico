@@ -11,150 +11,199 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #870505 0%, #380303 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
+            color: #e0e0e0;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border: 1px solid #380303;
+            box-shadow: 0 0 60px rgba(135, 5, 5, 0.3);
+            padding: 60px 50px;
         }
         h1 {
-            color: #333;
+            color: #870505;
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.5em;
+            margin-bottom: 12px;
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #380303;
+            padding-bottom: 20px;
         }
         .subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            color: #999;
+            margin-bottom: 50px;
+            font-size: 1em;
+            font-style: italic;
+            letter-spacing: 1px;
         }
         .input-section {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            background: #0d0d0d;
+            padding: 40px;
+            border: 1px solid #380303;
+            margin-bottom: 40px;
         }
         .form-group {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
             justify-content: center;
         }
         label {
-            font-weight: 600;
-            color: #333;
+            font-weight: 400;
+            color: #ccc;
             font-size: 1.1em;
+            letter-spacing: 1px;
         }
         input[type="number"] {
-            padding: 12px 20px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 14px 24px;
+            background: #0a0a0a;
+            border: 1px solid #380303;
+            color: #e0e0e0;
             font-size: 1.1em;
-            width: 200px;
-            transition: border-color 0.3s;
+            width: 180px;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
         input[type="number"]:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #870505;
+            box-shadow: 0 0 15px rgba(135, 5, 5, 0.3);
         }
         button {
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #420303 0%, #420303 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
+            padding: 14px 40px;
+            background: #870505;
+            color: #fff;
+            border: 1px solid #380303;
             font-size: 1.1em;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: 600;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: #380303;
+            box-shadow: 0 0 20px rgba(135, 5, 5, 0.5);
         }
         .error {
-            background: #ffe5e5;
-            border-left: 4px solid #ff4444;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
-            color: #cc0000;
+            background: #2a0000;
+            border: 1px solid #870505;
+            padding: 20px;
+            margin: 30px 0;
+            color: #ff6666;
+            text-align: center;
+            letter-spacing: 1px;
         }
         .result-section {
-            margin-top: 30px;
+            margin-top: 50px;
         }
         .info-box {
-            background: #e3f2fd;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #2196f3;
+            background: #0d0d0d;
+            padding: 30px;
+            border: 1px solid #380303;
+            margin-bottom: 40px;
         }
         .info-box h3 {
-            color: #094582;
-            margin-bottom: 10px;
+            color: #870505;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         .info-box p {
-            color: #555;
-            line-height: 1.6;
+            color: #aaa;
+            line-height: 2;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+        .info-box strong {
+            color: #ccc;
+            font-weight: 400;
+        }
+        h2 {
+            color: #870505;
+            margin-bottom: 30px;
+            font-size: 1.6em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #380303;
+            padding-bottom: 15px;
         }
         .dates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
         .date-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #540811;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: #0d0d0d;
+            padding: 20px 24px;
+            border: 1px solid #380303;
+            transition: all 0.3s ease;
         }
         .date-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #870505;
+            box-shadow: 0 0 20px rgba(135, 5, 5, 0.2);
         }
         .date-label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
+            font-weight: 400;
+            color: #999;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         .date-value {
-            color: #666;
-            font-size: 1.1em;
+            color: #ddd;
+            font-size: 1.15em;
+            font-family: 'Courier New', monospace;
         }
         .advent-sundays {
-            background: #fff3cd;
-            border-left-color: #ffc107;
+            border-color: #870505;
+            background: #1a0000;
+        }
+        .advent-sundays .date-label {
+            color: #870505;
         }
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #380303;
             color: #666;
+        }
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+        footer strong {
+            color: #870505;
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Liturgical Calendar Calculator</h1>
-        <p class="subtitle">Normalmente esta aplicación deb calcular el conjunto de fechas móviles del calendario litúrgico católico (Julian: 532-1582 / Gregorian: 1583+)</p>
+        <h1>Liturgical Calendar</h1>
+        <p class="subtitle">Historical Liturgical Date Calculator | Julian & Gregorian Calendars</p>
 
         <div class="input-section">
             <form method="POST" class="form-group">
-                <label for="year">Enter Year:</label>
-                <input type="number" id="year" name="year" 
-                       value="{{ year if year else '' }}" 
+                <label for="year">Year</label>
+                <input type="number" id="year" name="year"
+                       value="{{ year if year else '' }}"
                        min="532" max="9999" required>
                 <button type="submit">Calculate</button>
             </form>
@@ -174,7 +223,7 @@
                 <p><strong>Leap Year:</strong> {{ 'Yes' if result['Is Leap Year'] else 'No' }}</p>
             </div>
 
-            <h2 style="margin-bottom: 15px; color: #333;">Liturgical Dates</h2>
+            <h2>Liturgical Dates</h2>
             <div class="dates-grid">
                 {% for key, value in result.items() %}
                     {% if key not in ['Year', 'Calendar', 'Is Leap Year', 'Lent', 'Advent Sundays'] %}
@@ -207,10 +256,10 @@
         {% endif %}
 
         <footer>
-            <p><strong><em>calendario-liturgico</em> Library v0.0.1</strong></p>
-            <p>Un herramienta para la gente que no encuenta las fechas móviles en la bibliografía</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                CC BY-NC-SA 4.0 | Andrés Echavarría Peláez
+            <p><strong>Liturgical Calendar Library</strong> v0.0.1</p>
+            <p>For historians and liturgical experts</p>
+            <p style="margin-top: 15px; font-size: 0.85em;">
+                Etalab Open License 2.0
             </p>
         </footer>
     </div>

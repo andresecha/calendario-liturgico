@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "Python library for calculating Christian liturgical dates"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "CC BY-NC-SA 4.0"}
+license = {text = "Etalab-2.0"}
 authors = [
     {name = "Andres Felipe Echavarria Pelaez"}
 ]
@@ -28,7 +28,7 @@ classifiers = [
     "Intended Audience :: Education",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Religion",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",

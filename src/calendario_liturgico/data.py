@@ -37,7 +37,7 @@ Datos de fechas de Pascua para el calendario juliano.
 Este módulo contiene fechas pre-calculadas de Pascua para el calendario
 juliano desde el año 532 hasta 1583.
 
-License: MIT
+License: Etalab-2.0
 """
 
 from typing import Dict
