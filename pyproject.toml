@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "calendario-liturgico"
-version = "0.0.0.0"
+version = "0.0.1.2"
 description = "Python library for calculating Christian liturgical dates"
 readme = "README.md"
 requires-python = ">=3.8"
