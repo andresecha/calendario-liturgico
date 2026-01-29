@@ -46,11 +46,11 @@ Etalab Open License 2.0
 
 Version
 -------
-0.0.1.2
+0.1.0
 """
 
 # Información del paquete
-__version__ = "0.0.1.2"
+__version__ = "0.1.0"
 __author__ = "Andres Felipe Echavarria Pelaez"
 __license__ = "Etalab-2.0"
 

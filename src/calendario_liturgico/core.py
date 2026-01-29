@@ -266,29 +266,32 @@ class LiturgicalCalendar:
     def get_advent_start(self) -> datetime.date:
         """
         Calcula la fecha de inicio del Adviento.
-        
+
         El Adviento es el período de preparación para la Navidad.
-        Comienza el cuarto domingo antes de Navidad. Para calcularlo:
-        1. Tomar la fecha de Navidad (25 de diciembre)
-        2. Encontrar el domingo más cercano a Navidad
-        3. Retroceder 3 semanas (21 días) para llegar al primer domingo
+        Los 4 domingos de Adviento son los 4 domingos anteriores al 25 de diciembre
+        (sin contar el 25 si cae en domingo).
 
         Returns
         -------
         datetime.date
             Fecha del primer domingo de Adviento.
         """
-        # Navidad es siempre el 25 de diciembre
+        # Navidad es el 25 de diciembre
         christmas = datetime.date(self.year, 12, 25)
-        
-        # Calcular días hasta el próximo domingo (0=lunes, 6=domingo en weekday())
-        days_to_sunday = (7 - christmas.weekday()) % 7
-        
-        # Retroceder 3 semanas (21 días) desde el cuarto domingo antes de Navidad
-        fourth_sunday_before = christmas - datetime.timedelta(
-            days=days_to_sunday + 21
-        )
-        return fourth_sunday_before
+
+        # Encontrar el domingo estrictamente ANTES de Navidad (el 4to domingo de Adviento)
+        # weekday(): lunes=0, martes=1, ..., domingo=6
+        # Si Navidad es domingo (weekday=6), el 4to domingo de Adviento es 7 días antes
+        # Si Navidad es lunes (weekday=0), es 1 día antes
+        # Si Navidad es martes (weekday=1), es 2 días antes, etc.
+        days_to_previous_sunday = (christmas.weekday() + 1) % 7
+        if days_to_previous_sunday == 0:
+            days_to_previous_sunday = 7  # Si Navidad es domingo, ir al domingo anterior
+
+        fourth_advent_sunday = christmas - datetime.timedelta(days=days_to_previous_sunday)
+
+        # El primer domingo de Adviento es 3 semanas (21 días) antes del 4to
+        return fourth_advent_sunday - datetime.timedelta(days=21)
 
     def get_advent_sundays(self) -> List[datetime.date]:
         """
@@ -326,20 +329,22 @@ class LiturgicalCalendar:
     def get_baptism_of_the_lord(self) -> datetime.date:
         """
         Calcula la fecha del Bautismo del Señor.
-        
+
         El Bautismo del Señor celebra el bautismo de Jesús por Juan el Bautista.
-        Normalmente ocurre el domingo siguiente a la Epifanía.
+        Se celebra el primer domingo después de la Epifanía (6 de enero).
+        Si la Epifanía cae en domingo, el Bautismo se celebra el domingo siguiente.
 
         Returns
         -------
         datetime.date
-            Fecha del Bautismo del Señor (domingo después de Epifanía).
+            Fecha del Bautismo del Señor (primer domingo después de Epifanía).
         """
         epiphany = self.get_epiphany()
         # Calcular días hasta el próximo domingo
-        days_to_sunday = (7 - epiphany.weekday()) % 7
-        # Si Epifanía cae en domingo, Bautismo es el mismo día
-        # Si no, es el domingo siguiente
+        # weekday(): lunes=0, martes=1, ..., domingo=6
+        # (6 - weekday) % 7 da los días hasta el próximo domingo
+        # Si es domingo (resultado 0), usamos 7 para ir al siguiente domingo
+        days_to_sunday = (6 - epiphany.weekday()) % 7 or 7
         return epiphany + datetime.timedelta(days=days_to_sunday)
 
     def get_christ_the_king(self) -> datetime.date:
@@ -365,20 +370,21 @@ class LiturgicalCalendar:
     def get_lent_range(self) -> Tuple[datetime.date, datetime.date]:
         """
         Calcula el rango de fechas de la Cuaresma.
-        
+
         La Cuaresma es un período de 40 días (sin contar domingos)
         de preparación para la Pascua. Comienza el Miércoles de Ceniza
-        y termina el sábado antes del Domingo de Ramos.
+        y se extiende hasta la Misa de la Cena del Señor el Jueves Santo.
+        Este es un período de 46 días (40 días de ayuno + 6 domingos).
 
         Returns
         -------
         Tuple[datetime.date, datetime.date]
             Tupla con la fecha de inicio (Miércoles de Ceniza)
-            y fecha de fin (sábado antes del Domingo de Ramos).
+            y fecha de fin (Jueves Santo).
         """
         start = self.get_ash_wednesday()
-        # Termina el día antes del Domingo de Ramos
-        end = self.get_palm_sunday() - datetime.timedelta(days=1)
+        # Termina el Jueves Santo (inicio del Triduo Pascual)
+        end = self.get_holy_thursday()
         return start, end
 
     # =========================================================================

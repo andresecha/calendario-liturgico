@@ -281,7 +281,7 @@ Une bibliothèque Python pour calculer les dates du calendrier liturgique chrét
 
 ### Installation
 
-#### Option 1: Depuis PyPI (quand publié)
+#### Option 1: Depuis PyPI
 
 ```bash
 pip install calendario-liturgico
@@ -453,7 +453,7 @@ Andres Felipe Echavarria Pelaez
 
 ## Version
 
-0.0.1.2
+0.1.0
 
 ## License / Licencia / Licence
 

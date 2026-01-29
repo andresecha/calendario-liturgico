@@ -1,4 +1,4 @@
-@echo off
+
 REM Local installation script for calendario-liturgico (Windows)
 
 echo ================================
