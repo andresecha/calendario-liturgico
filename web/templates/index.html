@@ -20,6 +20,11 @@
 <body>
     <div class="container">
         <header>
+            <nav class="lang-switch" aria-label="Language">
+                <a href="/" lang="en" aria-current="page" class="active">EN</a>
+                <a href="https://calendario-liturgico.cachetown.fr/es/" lang="es" hreflang="es">ES</a>
+                <a href="https://calendario-liturgico.cachetown.fr/fr/" lang="fr" hreflang="fr">FR</a>
+            </nav>
             <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
             <h1>Liturgical Calendar</h1>
             <p class="subtitle">Historical Liturgical Date Calculator · Julian &amp; Gregorian</p>
@@ -89,6 +94,20 @@
             </div>
         </div>
         {% endif %}
+
+        <section class="about">
+            <h2>About this calculator</h2>
+            <p>This tool computes the key dates of the Christian liturgical year for any year you enter,
+            in both the <strong>Julian</strong> and <strong>Gregorian</strong> calendars. Enter a year
+            (from 532 onward) to obtain the date of <strong>Easter</strong> and every movable feast that
+            depends on it.</p>
+            <p>Calculated dates include the Epiphany, the Baptism of the Lord, Ash Wednesday and the
+            season of Lent, Palm Sunday, Holy Thursday, Good Friday and Holy Saturday, Easter Sunday,
+            the Ascension, Pentecost, Trinity Sunday, Corpus Christi, Christ the King, the four Sundays
+            of Advent, and Christmas.</p>
+            <p>It is intended for <strong>historians</strong> and researchers who work with documents
+            dated by liturgical feasts rather than by civil dates.</p>
+        </section>
 
         <footer>
             <p><span class="lib-name">Liturgical Calendar Library</span> v0.1.0</p>

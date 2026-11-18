@@ -3,7 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liturgical Calendar Calculator</title>
+
+    <title>Liturgical Calendar Calculator — Easter &amp; Feast Dates (Julian &amp; Gregorian)</title>
+    <meta name="description" content="Free online calculator of Christian liturgical dates for any year: Easter, Ash Wednesday, Lent, Ascension, Pentecost, Corpus Christi, Advent and more, in both the Julian and Gregorian calendars. Built for historians.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calendario-liturgico.cachetown.fr/">
+
+    <link rel="alternate" hreflang="en" href="https://calendario-liturgico.cachetown.fr/">
+    <link rel="alternate" hreflang="es" href="https://calendario-liturgico.cachetown.fr/es/">
+    <link rel="alternate" hreflang="fr" href="https://calendario-liturgico.cachetown.fr/fr/">
+    <link rel="alternate" hreflang="x-default" href="https://calendario-liturgico.cachetown.fr/">
+
+    <meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#13161b" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%238a1c2b'/%3E%3Crect%20x='14.5'%20y='6'%20width='3'%20height='20'%20fill='white'/%3E%3Crect%20x='9'%20y='11'%20width='14'%20height='3'%20fill='white'/%3E%3C/svg%3E">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Liturgical Calendar Calculator">
+    <meta property="og:title" content="Liturgical Calendar Calculator — Julian &amp; Gregorian Feast Dates">
+    <meta property="og:description" content="Compute Easter and the movable feasts of the Christian liturgical year for any year, in the Julian and Gregorian calendars. Built for historians.">
+    <meta property="og:url" content="https://calendario-liturgico.cachetown.fr/">
+    <meta property="og:image" content="https://calendario-liturgico.cachetown.fr/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en">
+    <meta property="og:locale:alternate" content="es">
+    <meta property="og:locale:alternate" content="fr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Liturgical Calendar Calculator — Julian &amp; Gregorian Feast Dates">
+    <meta name="twitter:description" content="Compute Easter and the movable feasts of the Christian liturgical year for any year, in the Julian and Gregorian calendars.">
+    <meta name="twitter:image" content="https://calendario-liturgico.cachetown.fr/og-image.png">
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Liturgical Calendar Calculator",
+        "url": "https://calendario-liturgico.cachetown.fr/",
+        "description": "Free online calculator of Christian liturgical dates for any year, in both the Julian and Gregorian calendars. It computes Easter and the dependent movable feasts: Ash Wednesday, Lent, Palm Sunday, the Triduum, Ascension, Pentecost, Trinity Sunday, Corpus Christi, Christ the King, the Sundays of Advent and more.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": ["en", "es", "fr"],
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "creator": { "@type": "Person", "name": "Andrés Echavarría Peláez" },
+        "license": "https://spdx.org/licenses/etalab-2.0.html",
+        "keywords": "liturgical calendar, Easter date, computus, movable feasts, Julian calendar, Gregorian calendar, church calendar, historians"
+    }
+    </script>
+
     <script>
         // Apply the saved theme before paint to avoid a flash of the wrong mode.
         (function () {
@@ -15,11 +67,16 @@
             } catch (e) {}
         })();
     </script>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
+            <nav class="lang-switch" aria-label="Language">
+                <a href="/" lang="en" aria-current="page" class="active">EN</a>
+                <a href="/es/" lang="es" hreflang="es">ES</a>
+                <a href="/fr/" lang="fr" hreflang="fr">FR</a>
+            </nav>
             <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
             <h1>Liturgical Calendar</h1>
             <p class="subtitle">Historical Liturgical Date Calculator · Julian &amp; Gregorian</p>
@@ -46,6 +103,21 @@
         <div id="error-slot"></div>
         <div id="result-slot"></div>
 
+        <section class="about">
+            <h2>About this calculator</h2>
+            <p>This tool computes the key dates of the Christian liturgical year for any year you enter,
+            in both the <strong>Julian</strong> and <strong>Gregorian</strong> calendars. Enter a year
+            (from 532 onward) to obtain the date of <strong>Easter</strong> and every movable feast that
+            depends on it.</p>
+            <p>Calculated dates include the Epiphany, the Baptism of the Lord, Ash Wednesday and the
+            season of Lent, Palm Sunday, Holy Thursday, Good Friday and Holy Saturday, Easter Sunday,
+            the Ascension, Pentecost, Trinity Sunday, Corpus Christi, Christ the King, the four Sundays
+            of Advent, and Christmas.</p>
+            <p>It is intended for <strong>historians</strong> and researchers who work with documents
+            dated by liturgical feasts rather than by civil dates. All calculations run entirely in your
+            browser.</p>
+        </section>
+
         <footer>
             <p><span class="lib-name">Liturgical Calendar Library</span> <span id="lib-version">v0.1.0</span></p>
             <p>&copy; Andrés Echavarria Pelaez · For historians and liturgical experts</p>
@@ -57,183 +129,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
-    <script src="./theme.js"></script>
-    <script>
-        // Keys rendered as plain cards are everything except these metadata/
-        // special keys, matching the server-rendered template exactly.
-        const EXCLUDED_KEYS = ['Year', 'Calendar', 'Is Leap Year', 'Lent', 'Advent Sundays'];
-
-        const statusEl = document.getElementById('engine-status');
-        const buttonEl = document.getElementById('calc-button');
-        const formEl = document.getElementById('calc-form');
-        const errorSlot = document.getElementById('error-slot');
-        const resultSlot = document.getElementById('result-slot');
-
-        let computeFn = null;
-
-        function escapeHtml(value) {
-            return String(value)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-        }
-
-        function showError(message) {
-            resultSlot.innerHTML = '';
-            errorSlot.innerHTML =
-                '<div class="error"><strong>Error:</strong> ' + escapeHtml(message) + '</div>';
-        }
-
-        function render(result) {
-            errorSlot.innerHTML = '';
-
-            const leap = result['Is Leap Year'] ? 'Yes' : 'No';
-            let cards = '';
-
-            // Plain date cards, in the dictionary's own insertion order.
-            for (const key of Object.keys(result)) {
-                if (EXCLUDED_KEYS.indexOf(key) !== -1) continue;
-                cards +=
-                    '<div class="date-card">' +
-                        '<div class="date-label">' + escapeHtml(key) + '</div>' +
-                        '<div class="date-value">' + escapeHtml(result[key]) + '</div>' +
-                    '</div>';
-            }
-
-            // Lent period card.
-            if ('Lent' in result) {
-                cards +=
-                    '<div class="date-card">' +
-                        '<div class="date-label">Lent Period</div>' +
-                        '<div class="date-value">' + escapeHtml(result['Lent']) + '</div>' +
-                    '</div>';
-            }
-
-            // Advent Sundays card (special styling).
-            if ('Advent Sundays' in result) {
-                let list = '';
-                result['Advent Sundays'].forEach(function (sunday, i) {
-                    list += (i + 1) + '. ' + escapeHtml(sunday) + '<br>';
-                });
-                cards +=
-                    '<div class="date-card advent-sundays">' +
-                        '<div class="date-label">Advent Sundays</div>' +
-                        '<div class="date-value">' + list + '</div>' +
-                    '</div>';
-            }
-
-            resultSlot.innerHTML =
-                '<div class="result-section">' +
-                    '<div class="info-box">' +
-                        '<h3>Year ' + escapeHtml(result['Year']) + '</h3>' +
-                        '<p><strong>Calendar Type:</strong> ' + escapeHtml(result['Calendar']) + '</p>' +
-                        '<p><strong>Leap Year:</strong> ' + leap + '</p>' +
-                    '</div>' +
-                    '<h2>Liturgical Dates</h2>' +
-                    '<div class="dates-grid">' + cards + '</div>' +
-                '</div>';
-        }
-
-        // Absolute base dir inside Pyodide's virtual filesystem. Absolute paths
-        // are required here: writing the package through a relative path fails
-        // with ErrnoError/ENOENT regardless of the working directory.
-        const PKG_BASE = '/lib_calendario';
-
-        async function loadPackage(pyodide) {
-            const manifest = await (await fetch('./pkg-manifest.json')).json();
-            pyodide.FS.mkdir(PKG_BASE);
-            pyodide.FS.mkdir(PKG_BASE + '/calendario_liturgico');
-            for (const name of manifest) {
-                const resp = await fetch('./calendario_liturgico/' + name);
-                if (!resp.ok) {
-                    throw new Error('Could not fetch ' + name + ' (HTTP ' + resp.status + ')');
-                }
-                pyodide.FS.writeFile(PKG_BASE + '/calendario_liturgico/' + name, await resp.text());
-            }
-            pyodide.runPython(
-                "import sys\n" +
-                "if '" + PKG_BASE + "' not in sys.path:\n" +
-                "    sys.path.insert(0, '" + PKG_BASE + "')"
-            );
-        }
-
-        async function boot() {
-            try {
-                const pyodide = await loadPyodide({
-                    indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/'
-                });
-                await loadPackage(pyodide);
-
-                // Build the compute helper once; it mirrors the Flask endpoint:
-                // same error strings, same serialization (ISO dates via str()).
-                computeFn = pyodide.runPython([
-                    'import json, datetime',
-                    'from calendario_liturgico import LiturgicalCalendar',
-                    '',
-                    'def _compute(year_str):',
-                    '    try:',
-                    '        year = int(year_str)',
-                    '    except (ValueError, TypeError):',
-                    '        return json.dumps({"error": "Invalid year"})',
-                    '    try:',
-                    '        cal = LiturgicalCalendar(year)',
-                    '        dates = cal.get_all_dates()',
-                    '        out = {}',
-                    '        for key, value in dates.items():',
-                    '            if isinstance(value, list):',
-                    '                out[key] = [str(item) for item in value]',
-                    '            elif isinstance(value, datetime.date):',
-                    '                out[key] = str(value)',
-                    '            else:',
-                    '                out[key] = value',
-                    '        return json.dumps({"result": out})',
-                    '    except ValueError as exc:',
-                    '        return json.dumps({"error": str(exc)})',
-                    '    except Exception as exc:',
-                    '        return json.dumps({"error": "Error: " + str(exc)})',
-                    '',
-                    '_compute'
-                ].join('\n'));
-
-                try {
-                    const version = pyodide.runPython(
-                        'from calendario_liturgico import __version__\n__version__'
-                    );
-                    document.getElementById('lib-version').textContent = 'v' + version;
-                } catch (e) {
-                    // Version is cosmetic; ignore if unavailable.
-                }
-
-                statusEl.textContent = '';
-                buttonEl.disabled = false;
-            } catch (err) {
-                statusEl.textContent = '';
-                const detail = (err && err.message) ? err.message : String(err);
-                showError('Could not load the calculation engine (' + detail + '). Check your connection and reload.');
-                console.error(err);
-            }
-        }
-
-        formEl.addEventListener('submit', function (event) {
-            event.preventDefault();
-            if (!computeFn) return;
-            const yearValue = document.getElementById('year').value;
-            let payload;
-            try {
-                payload = JSON.parse(computeFn(yearValue));
-            } catch (err) {
-                showError('Unexpected error during calculation.');
-                console.error(err);
-                return;
-            }
-            if (payload.error) {
-                showError(payload.error);
-            } else {
-                render(payload.result);
-            }
-        });
-
-        boot();
-    </script>
+    <script src="/theme.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>

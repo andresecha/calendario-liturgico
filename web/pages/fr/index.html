@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculateur de Calendrier Liturgique — Pâques et fêtes (julien et grégorien)</title>
+    <meta name="description" content="Calculateur en ligne gratuit des dates liturgiques chrétiennes pour n'importe quelle année : Pâques, Mercredi des Cendres, Carême, Ascension, Pentecôte, Fête-Dieu, Avent et plus, dans les calendriers julien et grégorien. Pour les historiens.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calendario-liturgico.cachetown.fr/fr/">
+
+    <link rel="alternate" hreflang="en" href="https://calendario-liturgico.cachetown.fr/">
+    <link rel="alternate" hreflang="es" href="https://calendario-liturgico.cachetown.fr/es/">
+    <link rel="alternate" hreflang="fr" href="https://calendario-liturgico.cachetown.fr/fr/">
+    <link rel="alternate" hreflang="x-default" href="https://calendario-liturgico.cachetown.fr/">
+
+    <meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#13161b" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%238a1c2b'/%3E%3Crect%20x='14.5'%20y='6'%20width='3'%20height='20'%20fill='white'/%3E%3Crect%20x='9'%20y='11'%20width='14'%20height='3'%20fill='white'/%3E%3C/svg%3E">
+
+    <!-- Open Graph / partage social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Calculateur de Calendrier Liturgique">
+    <meta property="og:title" content="Calculateur de Calendrier Liturgique — dates en julien et grégorien">
+    <meta property="og:description" content="Calculez Pâques et les fêtes mobiles de l'année liturgique chrétienne pour n'importe quelle année, dans les calendriers julien et grégorien. Pour les historiens.">
+    <meta property="og:url" content="https://calendario-liturgico.cachetown.fr/fr/">
+    <meta property="og:image" content="https://calendario-liturgico.cachetown.fr/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr">
+    <meta property="og:locale:alternate" content="en">
+    <meta property="og:locale:alternate" content="es">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculateur de Calendrier Liturgique — julien et grégorien">
+    <meta name="twitter:description" content="Calculez Pâques et les fêtes mobiles de l'année liturgique chrétienne pour n'importe quelle année, dans les calendriers julien et grégorien.">
+    <meta name="twitter:image" content="https://calendario-liturgico.cachetown.fr/og-image.png">
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculateur de Calendrier Liturgique",
+        "url": "https://calendario-liturgico.cachetown.fr/fr/",
+        "description": "Calculateur en ligne gratuit des dates liturgiques chrétiennes pour n'importe quelle année, dans les calendriers julien et grégorien. Il calcule Pâques et les fêtes mobiles qui en dépendent : Mercredi des Cendres, Carême, Dimanche des Rameaux, le Triduum, Ascension, Pentecôte, Trinité, Fête-Dieu, Christ Roi, les dimanches de l'Avent et plus.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Tous (navigateur web)",
+        "browserRequirements": "Nécessite JavaScript",
+        "inLanguage": "fr",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "creator": { "@type": "Person", "name": "Andrés Echavarría Peláez" },
+        "license": "https://spdx.org/licenses/etalab-2.0.html",
+        "keywords": "calendrier liturgique, date de Pâques, comput, fêtes mobiles, calendrier julien, calendrier grégorien, calendrier de l'Église, historiens"
+    }
+    </script>
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cl-theme');
+                if (t === 'light' || t === 'dark') {
+                    document.documentElement.setAttribute('data-theme', t);
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="lang-switch" aria-label="Langue">
+                <a href="/" lang="en" hreflang="en">EN</a>
+                <a href="/es/" lang="es" hreflang="es">ES</a>
+                <a href="/fr/" lang="fr" aria-current="page" class="active">FR</a>
+            </nav>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">☾</button>
+            <h1>Calendrier Liturgique</h1>
+            <p class="subtitle">Calculateur historique de dates liturgiques · Julien et grégorien</p>
+        </header>
+
+        <div class="note">
+            <span class="note-title">Calculateur historique</span>
+            Ce sont les dates liturgiques <strong>traditionnelles et universelles</strong>. Elles ne
+            reflètent pas les adaptations régionales : selon le droit canonique (canon 1246), les
+            conférences épiscopales locales peuvent transférer des fêtes comme l'<strong>Épiphanie</strong>,
+            l'<strong>Ascension</strong> et la <strong>Fête-Dieu</strong> au dimanche le plus proche, de
+            sorte que la date réellement observée peut varier d'un pays ou d'un diocèse à l'autre.
+        </div>
+
+        <div class="card input-section">
+            <form id="calc-form">
+                <label for="year">Année</label>
+                <input type="number" id="year" name="year" min="532" max="9999" placeholder="p. ex. 1500" required>
+                <button type="submit" id="calc-button" disabled>Calculer</button>
+            </form>
+            <div class="engine-status" id="engine-status">Chargement du moteur de calcul&hellip;</div>
+        </div>
+
+        <div id="error-slot"></div>
+        <div id="result-slot"></div>
+
+        <section class="about">
+            <h2>À propos de ce calculateur</h2>
+            <p>Cet outil calcule les dates principales de l'année liturgique chrétienne pour n'importe
+            quelle année que vous saisissez, dans les calendriers <strong>julien</strong> et
+            <strong>grégorien</strong>. Saisissez une année (à partir de 532) pour obtenir la date de
+            <strong>Pâques</strong> et toutes les fêtes mobiles qui en dépendent.</p>
+            <p>Les dates calculées comprennent l'Épiphanie, le Baptême du Seigneur, le Mercredi des Cendres
+            et le temps du Carême, le Dimanche des Rameaux, le Jeudi Saint, le Vendredi Saint et le Samedi
+            Saint, le Dimanche de Pâques, l'Ascension, la Pentecôte, la Trinité, la Fête-Dieu, le Christ
+            Roi, les quatre dimanches de l'Avent et Noël.</p>
+            <p>Il est destiné aux <strong>historiens</strong> et aux chercheurs qui travaillent avec des
+            documents datés par les fêtes liturgiques plutôt que par les dates civiles. Tous les calculs
+            s'exécutent entièrement dans votre navigateur.</p>
+        </section>
+
+        <footer>
+            <p><span class="lib-name">Liturgical Calendar Library</span> <span id="lib-version">v0.1.0</span></p>
+            <p>&copy; Andrés Echavarria Pelaez · Pour les historiens et les experts liturgiques</p>
+            <span class="footer-logo">
+                <img src="https://cst-ariane.huma-num.fr/logos/ariane.png" alt="Ariane">
+            </span>
+            <p class="footer-fine">Licence Ouverte Etalab 2.0</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+    <script src="/theme.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

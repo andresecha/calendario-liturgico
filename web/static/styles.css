@@ -139,6 +139,32 @@ h1 {
 }
 .theme-toggle:hover { border-color: var(--focus); }
 
+.lang-switch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 4px;
+}
+.lang-switch a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 6px 9px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.lang-switch a:hover { border-color: var(--focus); color: var(--text); }
+.lang-switch a.active {
+    color: var(--btn-text);
+    background: var(--btn-bg);
+    border-color: var(--btn-bg);
+}
+
 .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -300,6 +326,15 @@ h2 {
 .advent-sundays .date-label { color: var(--heading); }
 .advent-sundays .date-value { line-height: 1.9; }
 
+.about { margin-top: 40px; }
+.about p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+.about p:last-child { margin-bottom: 0; }
+.about strong { color: var(--text); font-weight: 600; }
+
 footer {
     text-align: center;
     margin-top: 48px;
@@ -322,8 +357,9 @@ footer .lib-name { color: var(--heading); font-weight: 600; }
 /* Friendlier, fully responsive layout on phones and small screens. */
 @media (max-width: 600px) {
     body { padding: 20px 14px 40px; }
-    header { margin-bottom: 26px; }
-    .theme-toggle { top: -4px; right: -2px; width: 38px; height: 38px; }
+    header { margin-bottom: 26px; padding-top: 46px; }
+    .theme-toggle { top: 0; right: 0; width: 36px; height: 36px; }
+    .lang-switch a { padding: 5px 8px; }
     h1 { font-size: 1.75rem; }
     .subtitle { font-size: 0.95rem; }
     .input-section { padding: 22px 18px; }

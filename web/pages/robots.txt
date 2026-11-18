@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calendario-liturgico.cachetown.fr/sitemap.xml

@@ -47,8 +47,15 @@ jobs:
         run: |
           mkdir -p _site/calendario_liturgico
           cp web/pages/index.html _site/index.html
+          cp web/pages/robots.txt _site/robots.txt
+          cp web/pages/sitemap.xml _site/sitemap.xml
+          cp web/pages/og-image.png _site/og-image.png
           cp web/static/styles.css _site/styles.css
           cp web/static/theme.js _site/theme.js
+          cp web/static/app.js _site/app.js
+          mkdir -p _site/es _site/fr
+          cp web/pages/es/index.html _site/es/index.html
+          cp web/pages/fr/index.html _site/fr/index.html
           cp src/calendario_liturgico/*.py _site/calendario_liturgico/
           touch _site/.nojekyll
           python -c "import os, json, glob; files = sorted(os.path.basename(p) for p in glob.glob('_site/calendario_liturgico/*.py')); open('_site/pkg-manifest.json', 'w').write(json.dumps(files)); print('manifest:', files)"
