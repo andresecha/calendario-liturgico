@@ -1,0 +1,73 @@
+name: Deploy web to Pages
+
+# Publica la calculadora estática (Pyodide) en GitHub Pages.
+# Al vivir el dominio cachetown.fr en la cuenta como user site, este
+# project site queda disponible en https://cachetown.fr/calendario-liturgico/
+# sin tocar el repositorio del sitio personal.
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'web/pages/**'
+      - 'src/calendario_liturgico/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      # Puerta de validación: si los tests fallan, no se despliega nada.
+      - name: Run tests
+        run: pytest
+
+      - name: Assemble static site
+        run: |
+          mkdir -p _site/calendario_liturgico
+          cp web/pages/index.html _site/index.html
+          cp src/calendario_liturgico/*.py _site/calendario_liturgico/
+          touch _site/.nojekyll
+          python -c "import os, json, glob; files = sorted(os.path.basename(p) for p in glob.glob('_site/calendario_liturgico/*.py')); open('_site/pkg-manifest.json', 'w').write(json.dumps(files)); print('manifest:', files)"
+
+      # Comprueba que la copia empaquetada calcula correctamente antes de publicar.
+      - name: Validate assembled package
+        run: |
+          cd _site
+          python -c "import sys; sys.path.insert(0, ''); from calendario_liturgico import LiturgicalCalendar; d = LiturgicalCalendar(2024).get_all_dates(); assert str(d['Easter Sunday']) == '2024-03-31', d['Easter Sunday']; print('validation ok')"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
