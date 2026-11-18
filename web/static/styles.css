@@ -344,6 +344,8 @@ footer {
 }
 footer p { margin: 6px 0; font-size: 0.9rem; }
 footer .lib-name { color: var(--heading); font-weight: 600; }
+footer a { color: var(--text-muted); text-decoration: none; }
+footer a:hover { color: var(--heading); text-decoration: underline; }
 .footer-logo {
     display: inline-block;
     margin: 12px 0;
