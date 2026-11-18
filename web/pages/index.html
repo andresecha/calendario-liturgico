@@ -319,14 +319,27 @@
                 '</div>';
         }
 
+        // Absolute base dir inside Pyodide's virtual filesystem. Absolute paths
+        // are required here: writing the package through a relative path fails
+        // with ErrnoError/ENOENT regardless of the working directory.
+        const PKG_BASE = '/lib_calendario';
+
         async function loadPackage(pyodide) {
             const manifest = await (await fetch('./pkg-manifest.json')).json();
-            pyodide.FS.mkdirTree('calendario_liturgico');
+            pyodide.FS.mkdir(PKG_BASE);
+            pyodide.FS.mkdir(PKG_BASE + '/calendario_liturgico');
             for (const name of manifest) {
-                const code = await (await fetch('./calendario_liturgico/' + name)).text();
-                pyodide.FS.writeFile('calendario_liturgico/' + name, code);
+                const resp = await fetch('./calendario_liturgico/' + name);
+                if (!resp.ok) {
+                    throw new Error('Could not fetch ' + name + ' (HTTP ' + resp.status + ')');
+                }
+                pyodide.FS.writeFile(PKG_BASE + '/calendario_liturgico/' + name, await resp.text());
             }
-            pyodide.runPython("import sys\nif '' not in sys.path:\n    sys.path.insert(0, '')");
+            pyodide.runPython(
+                "import sys\n" +
+                "if '" + PKG_BASE + "' not in sys.path:\n" +
+                "    sys.path.insert(0, '" + PKG_BASE + "')"
+            );
         }
 
         async function boot() {
@@ -380,7 +393,8 @@
                 buttonEl.disabled = false;
             } catch (err) {
                 statusEl.textContent = '';
-                showError('Could not load the calculation engine. Check your connection and reload.');
+                const detail = (err && err.message) ? err.message : String(err);
+                showError('Could not load the calculation engine (' + detail + '). Check your connection and reload.');
                 console.error(err);
             }
         }
