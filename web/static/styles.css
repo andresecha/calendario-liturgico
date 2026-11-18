@@ -353,6 +353,8 @@ footer .lib-name { color: var(--heading); font-weight: 600; }
 }
 .footer-logo img { height: 48px; vertical-align: middle; display: block; }
 .footer-fine { font-size: 0.8rem; margin-top: 10px; }
+.footer-fine a { color: var(--text-muted); text-decoration: underline; }
+.footer-fine a:hover { color: var(--heading); }
 
 /* Friendlier, fully responsive layout on phones and small screens. */
 @media (max-width: 600px) {

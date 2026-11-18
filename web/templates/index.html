@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liturgical Calendar Calculator</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon-180.png') }}">
     <script>
@@ -113,11 +114,11 @@
 
         <footer>
             <p><span class="lib-name">Liturgical Calendar Library</span> v0.1.0</p>
-            <p>&copy; Andrés Echavarria Pelaez · For historians and liturgical experts</p>
+            <p>&copy; Andrés Echavarria Pelaez</p>
             <span class="footer-logo">
-                <img src="https://cst-ariane.huma-num.fr/logos/ariane.png" alt="Ariane">
+                <img src="{{ url_for('static', filename='ariane-logo.png') }}" alt="Ariane">
             </span>
-            <p class="footer-fine">Etalab Open License 2.0</p>
+            <p class="footer-fine">Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license" target="_blank">CC BY-NC-SA 4.0</a></p>
         </footer>
     </div>
 

@@ -53,8 +53,10 @@ jobs:
           cp web/static/styles.css _site/styles.css
           cp web/static/theme.js _site/theme.js
           cp web/static/app.js _site/app.js
+          cp web/static/favicon.svg _site/favicon.svg
           cp web/static/favicon-32.png _site/favicon-32.png
           cp web/static/favicon-180.png _site/favicon-180.png
+          cp web/static/ariane-logo.png _site/ariane-logo.png
           mkdir -p _site/es _site/fr
           cp web/pages/es/index.html _site/es/index.html
           cp web/pages/fr/index.html _site/fr/index.html

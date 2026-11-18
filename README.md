@@ -132,7 +132,10 @@ pytest
 
 ### License
 
-Etalab Open License 2.0 - Free for commercial and non-commercial use with attribution requirement. Compatible with Creative Commons Attribution (CC-BY).
+This project uses two licenses:
+
+- **Code (the Python library):** Etalab Open License 2.0 — free for commercial and non-commercial use with an attribution requirement. Compatible with Creative Commons Attribution (CC-BY). See the `LICENSE` file.
+- **Web application content** (the texts, design and translations of the online calculator at <https://calendario-liturgico.cachetown.fr>): licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ---
 
@@ -260,7 +263,10 @@ pytest
 
 ### Licencia
 
-Licencia Abierta Etalab 2.0 - Libre para uso comercial y no comercial con requisito de atribución. Compatible con Creative Commons Attribution (CC-BY).
+Este proyecto usa dos licencias:
+
+- **Código (la biblioteca Python):** Licencia Abierta Etalab 2.0 — libre para uso comercial y no comercial con requisito de atribución. Compatible con Creative Commons Attribution (CC-BY). Ver el fichero `LICENSE`.
+- **Contenido de la aplicación web** (los textos, el diseño y las traducciones de la calculadora en línea en <https://calendario-liturgico.cachetown.fr>): bajo licencia [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
 
 ---
 
@@ -388,7 +394,10 @@ pytest
 
 ### Licence
 
-Licence Ouverte Etalab 2.0 - Libre pour usage commercial et non commercial avec exigence d'attribution. Compatible avec Creative Commons Attribution (CC-BY).
+Ce projet utilise deux licences :
+
+- **Code (la bibliothèque Python) :** Licence Ouverte Etalab 2.0 — libre pour usage commercial et non commercial avec exigence d'attribution. Compatible avec Creative Commons Attribution (CC-BY). Voir le fichier `LICENSE`.
+- **Contenu de l'application web** (les textes, le design et les traductions du calculateur en ligne sur <https://calendario-liturgico.cachetown.fr>) : sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr).
 
 ---
 
@@ -457,4 +466,4 @@ Andres Felipe Echavarria Pelaez
 
 ## License / Licencia / Licence
 
-Etalab Open License 2.0 / Licence Ouverte Etalab 2.0 - See LICENSE file for details
+Code: Etalab Open License 2.0 / Licence Ouverte Etalab 2.0 — see LICENSE file. Web content: CC BY-NC-SA 4.0.
